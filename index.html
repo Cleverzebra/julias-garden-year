@@ -108,6 +108,9 @@ h3 { font-family:var(--serif); font-size:1.22rem; margin:26px 0 10px; }
 .badge.sure { background:#dff0e2; color:#256b3a; }
 .badge.guess { background:var(--gold-soft); color:#8a6210; }
 .badge.mystery { background:#fbe3dc; color:#a8451f; }
+.badge.list { background:#ece3f3; color:#6b4a86; }
+.bloomchart .bar { position:relative; overflow:hidden; }
+.bloomchart .seg-list { position:absolute; top:0; left:0; right:0; background:#b98cae; border-bottom:2px solid var(--card); }
 :root[data-theme="dark"] .badge.sure, :root:not([data-theme="light"]) .badge.sure { background:#1d3d27; color:#9fd8ae; }
 
 .btn { display:inline-block; border:none; cursor:pointer; font-family:var(--sans); font-weight:700; font-size:.9rem; padding:10px 16px; border-radius:10px; background:var(--leaf-deep); color:#fff; }
@@ -245,7 +248,7 @@ footer .wrap { display:grid; gap:6px; }
     <p class="eyebrow">A field guide to one exuberant garden · Natick, Massachusetts · zone 6b</p>
     <h1 id="heroTitle">Julia's Garden Year</h1>
     <p>Sunflowers over the sidewalk, corn by the front porch, rainbow chard as a bedding plant, and a Joe Pye weed keeping watch by the windows. This is the living handbook for it: what's blooming, what wants doing, and a care card for every plant.</p>
-    <p class="small">Grown from 9 photos taken July 29, 2026. Every plant name is a best guess until Julia blesses it → <a href="#help" style="color:#f0c96a">Get It Right</a></p>
+    <p class="small">Grown from 9 photos (July 29) and Julia's starter list (July 30). Photo IDs stay guesses until Julia blesses them → <a href="#help" style="color:#f0c96a">Get It Right</a></p>
   </div>
 </div>
 
@@ -268,6 +271,7 @@ footer .wrap { display:grid; gap:6px; }
         <p style="margin-top:12px"><a class="btn small" href="#today">I have 15 minutes →</a></p>
       </div>
     </div>
+    <div class="note" style="background:var(--pye-soft);border-left-color:var(--pye)">🆕 <b>Julia's starter list is in (July 30):</b> camassia and daffodil bulbs, pale purple coneflower, butterfly weed, wild bergamot, blue vervain, plus her sunflower and corn seed. Six new plant cards are live (violet badges), the bloom chart now shows the spring the bulbs will buy, and October's list has the bulb planting. Full breakdown on the <a href="#ideas">Plant Ideas</a> tab.</div>
     <div class="note">📌 <b>Spotted in the photos:</b> six-packs of pansies still waiting in their trays by the front walk. They'd rather be in the ground (or a pot) this week, with afternoon shade until the heat breaks.</div>
     <div class="card" style="margin-top:16px">
       <h3 style="margin-top:0">🔎 Ask about your garden</h3>
@@ -358,7 +362,7 @@ footer .wrap { display:grid; gap:6px; }
 <section class="tab" id="plants">
   <div class="section">
     <h2 class="title">A card for every plant</h2>
-    <p class="lede">Everything identified (or guessed) from the photos. The badge says how sure the guess is; the checkbox is for Julia to bless each one. Care text is drafted for zone 6b and wants her expert red pen before it goes near a client.</p>
+    <p class="lede">Nineteen from the photos, plus six from Julia's starter list (violet badges, not in the ground yet). The badge says how each card got here; the checkbox is for Julia to bless it. Care text is drafted for zone 6b and wants her expert red pen before it goes near a client.</p>
     <div id="blessbar" class="note" style="display:none"></div>
     <div class="grid g3" id="plantgrid"></div>
   </div>
@@ -382,10 +386,11 @@ footer .wrap { display:grid; gap:6px; }
       </div>
     </div>
     <h3>The boring-stretch finder</h3>
-    <p class="lede" style="margin-bottom:8px">How many things are in flower each month, counted from the plant cards. The dashed columns are the quiet stretch: right where spring bulbs, hellebores, and fall asters would earn their keep.</p>
+    <p class="lede" style="margin-bottom:8px">How many things are in flower each month. Solid green is what's in the ground now; the lighter tops are Julia's starter list once planted. The camassia and daffodils land exactly in the old March-to-May hole this chart flagged, which is very satisfying.</p>
     <div class="card">
       <div class="bloomchart" id="bloomchart"></div>
       <div class="bloomlabels" id="bloomlabels"></div>
+      <p style="font-size:.78rem;color:var(--ink-soft);margin:10px 0 0">Solid green: in the ground now. Lighter purple top: Julia's starter list once planted. Dashed: still quiet (hellebores and fall asters remain on the bench).</p>
     </div>
   </div>
 </section>
@@ -471,6 +476,23 @@ footer .wrap { display:grid; gap:6px; }
       <p style="font-size:.8rem;color:var(--ink-soft);margin:12px 0 0">Also on file from the photos: loamy beds under fresh mulch, a hose that reaches everything, low deer pressure (village neighborhood), kids and a dog in the picture, and a gardener who is clearly not afraid of tall plants.</p>
     </div>
 
+    <h3>The first real input: Julia's starter list (July 30)</h3>
+    <div class="card" style="border-top:6px solid var(--pye)">
+      <p style="font-size:.9rem;margin:0 0 10px">Julia's opening move, in her words: "a combo of spring bulbs, perennials, and annuals grown from seed." Names tidied to their formal Latin where autocorrect got involved. Every one of these now has its own plant card and a place in the Garden Year.</p>
+      <table>
+        <tr><th>The plant</th><th>What it brings</th><th>How it goes in</th></tr>
+        <tr><td><b>Camassia</b> 🪻</td><td>Starry blue May spikes; shrugs at damp clay</td><td>Bulbs, planted THIS October</td></tr>
+        <tr><td><b>Daffodils</b> 🌼</td><td>The March–April morale section; deer-proof</td><td>Bulbs, planted THIS October</td></tr>
+        <tr><td><b>Echinacea pallida</b> (pale purple coneflower) 🌸</td><td>Drooping pale-pink rays in June; prairie-tough taproot</td><td>Seed, winter-sown in Jan–Feb (needs cold), or spring plants</td></tr>
+        <tr><td><b>Asclepias tuberosa</b> (butterfly weed) 🦋</td><td>Orange umbels; monarch nursery; wakes late</td><td>Seed, winter-sown; mark its spot forever</td></tr>
+        <tr><td><b>Monarda fistulosa</b> (wild bergamot) 🐝</td><td>Lavender mopheads; the bee party, July–Sept</td><td>Seed, winter-sown or spring surface-sow; easy</td></tr>
+        <tr><td><b>Verbena hastata</b> (blue vervain) 💜</td><td>Violet candelabras; cousin of the tall verbena in the pots</td><td>Seed, winter-sown (needs cold)</td></tr>
+        <tr><td><b>Sunflowers</b> 🌻</td><td>The incumbents; the hedge continues</td><td>Seed, direct-sown late May, in waves</td></tr>
+        <tr><td><b>Corn</b> 🌽</td><td>Also the incumbents, gloriously</td><td>Seed, in a block, after last frost</td></tr>
+      </table>
+      <p style="font-size:.9rem;margin:10px 0 0"><b>What the list is telling us:</b> four of the six new picks are northeastern natives, which is Direction B talking. The two bulbs land precisely in the March-to-May quiet stretch the bloom chart flagged, which is Direction C's early shift. So the program's honest read: Julia already voted for the pollinator remix with the early shift bolted on, and Direction A stays on the menu for pure joy. The bloom chart on the Garden Year tab now shows before and after.</p>
+    </div>
+
     <h3>Three directions to react to</h3>
     <div class="grid g2" id="dirgrid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))"></div>
   </div>
@@ -496,6 +518,7 @@ footer .wrap { display:grid; gap:6px; }
   <div class="section">
     <h2 class="title">Get it right</h2>
     <p class="lede">Everything in this guide came from nine photos and educated guessing. These are the questions that make it truly yours, Julia. Answer any way you like: a chaotic text, a voice memo, ten photos of plant tags. Check things off as you go.</p>
+    <div class="note" style="background:var(--pye-soft);border-left-color:var(--pye)">✅ <b>First answer received (July 30): the starter list.</b> It's already woven through the site: six new plant cards, the bloom-chart overlay, October's bulb job, and a breakdown on the Plant Ideas tab. Still open: everything below, especially the versions question and the three mysteries.</div>
     <ul class="qs" id="qlist"></ul>
     <div class="note" style="margin-top:18px">📮 Answers go to Elizabeth by text, and the guide gets updated. Progress saves in this browser.</div>
   </div>
@@ -505,7 +528,7 @@ footer .wrap { display:grid; gap:6px; }
 
 <footer>
   <div class="wrap">
-    <div>🌻 <b>Julia's Garden Year</b> · a field-guide prototype, grown from 9 photos taken July 29, 2026.</div>
+    <div>🌻 <b>Julia's Garden Year</b> · a field-guide prototype, grown from 9 photos (July 29, 2026) and Julia's starter list (July 30, 2026).</div>
     <div>Plant identifications are best guesses awaiting Julia's confirmation. Care notes are drafted for USDA zone 6b (typical Natick frost window mid-May to mid-October) and want an expert eye before anyone follows them off this one garden.</div>
     <div>Made with love (and AI) by Elizabeth's garden-book project. The plant-idea program here is a hand-built sketch of the interactive version.</div>
   </div>
@@ -731,16 +754,71 @@ const PLANTS = [
    divide:"n/a",
    mistakes:["None really: whatever it is, it's low-drama"],
    ask:"The tiny yellow daisy spilling out of the pots: what did the tag say?" },
+ { id:"camassia", name:"Camassia", latin:"Camassia (species per the order, TBD)", type:"spring bulb, planted in fall", emoji:"🪻", conf:"sure", origin:"list",
+   beds:[], photo:null, pos:"",
+   height:"18–36 in spikes", bloom:[4], color:"starry blue spikes in May",
+   sun:"Sun to light shade", soil:"Happy even in moist, heavier soil (rare for a bulb)", water:"Spring moisture, then it naps",
+   deadhead:"Optional after bloom; the leaves must stay until fully yellow.",
+   cutback:"Foliage disappears on its own by midsummer; mark the spot so nothing gets planted on top.",
+   divide:"Lift and split crowded clumps after foliage dies, every 4–5 years at most.",
+   mistakes:["Cutting or braiding leaves before they yellow","A spot that bakes bone-dry in spring"],
+   ask:null },
+ { id:"daffodil", name:"Daffodils", latin:"Narcissus", type:"spring bulb, planted in fall", emoji:"🌼", conf:"sure", origin:"list",
+   beds:[], photo:null, pos:"",
+   height:"6–18 in by variety", bloom:[2,3], color:"the March–April morale section; deer and rodents won't touch them",
+   sun:"Sun (bare spring trees count as sun)", soil:"Well drained", water:"Rain handles it",
+   deadhead:"Snap spent flowers so energy goes back to the bulb, not to seed.",
+   cutback:"Leave foliage at least 6 weeks, until yellow and limp. No braiding, no rubber bands, no early mowing.",
+   divide:"Lift and split crowded clumps as foliage fades, every 5+ years.",
+   mistakes:["Tidying the leaves early (next spring's flowers die with them)","Planting shallow: go 3x the bulb's height deep"],
+   ask:null },
+ { id:"epallida", name:"Pale purple coneflower", latin:"Echinacea pallida", type:"native perennial (seed wants winter cold)", emoji:"🌸", conf:"sure", origin:"list",
+   beds:[], photo:null, pos:"",
+   height:"2–3 ft", bloom:[5,6], color:"pale pink rays that droop like a shuttlecock",
+   sun:"Full sun", soil:"Lean and well drained; prairie-tough", water:"Drought tolerant once established",
+   deadhead:"Optional after the first flush; leaving the heads feeds goldfinches into fall.",
+   cutback:"Leave standing all winter; cut to the ground in early spring.",
+   divide:"Rarely: it grows from a taproot and prefers never to move.",
+   mistakes:["Transplanting an established one (the taproot objects)","Rich soil and fertilizer = floppy stems"],
+   ask:null },
+ { id:"atuberosa", name:"Butterfly weed", latin:"Asclepias tuberosa", type:"native perennial, monarch host", emoji:"🦋", conf:"sure", origin:"list",
+   beds:[], photo:null, pos:"",
+   height:"18–30 in", bloom:[5,6,7], color:"screaming-orange umbels",
+   sun:"Full sun", soil:"Dry, lean, the worst spot you have", water:"Almost none once established",
+   deadhead:"Optional for rebloom; leave late pods to ripen if you want volunteers.",
+   cutback:"Cut old stalks in early spring. It wakes VERY late (late May): mark the spot so nobody plants over it.",
+   divide:"No: deep taproot, hates moving. Start new ones from seed instead.",
+   mistakes:["Declaring it dead in April","Giving it the rich, wet spot (it wants poverty)"],
+   ask:null },
+ { id:"mfistulosa", name:"Wild bergamot", latin:"Monarda fistulosa", type:"native perennial", emoji:"🐝", conf:"sure", origin:"list",
+   beds:[], photo:null, pos:"",
+   height:"2–4 ft", bloom:[6,7,8], color:"lavender mopheads, mobbed by bees and hummingbird moths",
+   sun:"Sun to part shade", soil:"Average; tolerates clay", water:"Water the base in dry spells, never the leaves",
+   deadhead:"Yes, to a side bud: extends bloom by weeks.",
+   cutback:"Cut to the ground after frost or in early spring.",
+   divide:"Every 3–4 years in spring; it spreads politely but firmly, so give it room.",
+   mistakes:["Crowding it (powdery mildew loves stale air)","Overhead watering in August"],
+   ask:null },
+ { id:"vhastata", name:"Blue vervain", latin:"Verbena hastata", type:"native perennial (short-lived, self-sows)", emoji:"💜", conf:"sure", origin:"list",
+   beds:[], photo:null, pos:"",
+   height:"3–5 ft", bloom:[6,7,8], color:"violet-blue candelabras; cousin of the tall verbena already in the pots",
+   sun:"Full sun", soil:"Loves moisture; fine in decent garden soil", water:"The thirstiest of the new crew",
+   deadhead:"Optional; letting it seed is how it stays in the garden.",
+   cutback:"Leave the seed spikes for winter sparrows and finches; cut old stems in early spring.",
+   divide:"Not usually; volunteer seedlings replace the elders.",
+   mistakes:["Weeding out its seedlings in spring (learn their face)","A bone-dry corner"],
+   ask:null },
 ];
 
 /* ---------- month stories, blooms handled from data; tasks ---------- */
 const YEARDATA = [
  { story:"The garden sleeps and so can you. This is armchair season: seed catalogs, graph paper, and deciding how much taller next year's sunflower hedge gets.",
-   tasks:[ {t:"Order sunflower, corn, cosmos, and zinnia seed before the good varieties sell out", mins:60},
+   tasks:[ {t:"Order seed: sunflowers, corn, cosmos, zinnias, plus the starter-list natives (pale purple coneflower, butterfly weed, wild bergamot, blue vervain). The natives need winter cold to sprout, so order early", mins:60},
            {t:"Sketch next year's beds while this year's photos are fresh", mins:60},
            {t:"Check stored pots in the garage for cracks", mins:15} ] },
  { story:"Still quiet. The Joe Pye stalks and sunflower skeletons are doing their winter job: feeding birds and catching snow.",
-   tasks:[ {t:"Start pansy seed indoors under a light (or plan to buy six-packs in April, zero shame)", mins:60},
+   tasks:[ {t:"Winter-sow the starter-list natives in milk jugs outside: the cold IS the trick that sprouts them", mins:60},
+           {t:"Start pansy seed indoors under a light (or plan to buy six-packs in April, zero shame)", mins:60},
            {t:"Sharpen and oil the pruners and trowel", mins:15},
            {t:"Walk the beds on a thaw day and note what heaved", mins:15} ] },
  { story:"The garden clears its throat. Cut down what winter kept, and resist working soil that's still cold mud.",
@@ -756,7 +834,8 @@ const YEARDATA = [
    tasks:[ {t:"After ~May 15: plant petunias, geraniums, cosmos, marigolds, coleus, impatiens, salvia", mins:240},
            {t:"Direct-sow the sunflower hedge (sow a second round 2 weeks later for a longer show)", mins:60},
            {t:"Plant corn in a block or clump, not a lonely row", mins:60},
-           {t:"Hang the ferns and baskets back out; start the pot-feeding routine", mins:60} ] },
+           {t:"Hang the ferns and baskets back out; start the pot-feeding routine", mins:60},
+           {t:"Mark the butterfly weed's spot before it wakes: it sleeps weeks later than everything else", mins:15} ] },
  { story:"Growth you can almost hear. Stake early, thin honestly, and hand water while roots establish.",
    tasks:[ {t:"Thin corn and sunflower seedlings (the hard-hearted step that makes them huge)", mins:15},
            {t:"Optional: cut Joe Pye back by half early this month for a sturdier, later bloom", mins:15},
@@ -780,7 +859,7 @@ const YEARDATA = [
            {t:"Refresh pots with fall pansies (the spring ones may be reviving too)", mins:60},
            {t:"Cut and dry a few chard stems and sunflowers for the table", mins:15} ] },
  { story:"Frost lands mid-month, usually. The garden gets its dignity: seed heads stay, tender things come in or come out, and next spring gets planted now.",
-   tasks:[ {t:"THE OCTOBER IDEA: plant daffodil, crocus, and snowdrop bulbs along the hedge line for an April show", mins:240},
+   tasks:[ {t:"THE OCTOBER MOVE: plant Julia's camassia and daffodil bulbs (3x the bulb's height deep; camassia can take the damper spots)", mins:240},
            {t:"After frost blackens them: pull petunias, cosmos, marigolds, impatiens, coleus", mins:240},
            {t:"Leave Joe Pye and some sunflower skeletons standing for birds and winter shape", mins:15},
            {t:"Empty, scrub, and stack the summer pots (leave the frost-proof ones)", mins:60} ] },
@@ -853,6 +932,26 @@ function verdictFor(p, m) {
       return ["🛑 Absolutely not", "Never prune an unidentified shrub. If it's a hydrangea, one wrong cut erases next year's flowers. Name it first (Get It Right, question 2).", "stop"];
     case "bidens":
       return ["✂️ Tidy trim only", "Mostly self-cleaning; shear lightly if it sprawls past charming.", "go"];
+    case "camassia": case "daffodil":
+      if (m>=2&&m<=4) return ["✂️ Flowers yes, leaves NO", "Deadhead spent flowers if you like, but the leaves must stand until they yellow completely (about six weeks): they are recharging the bulb for next spring. No braiding, no tidying.", "careful"];
+      if (m===8||m===9) return ["🌱 Planting season, not cutting season", "Fall is when these GO IN: 3x the bulb's height deep, pointy end up. The camassia can take the damper spots.", "go"];
+      return ["🍃 Dormant underground", "Nothing to see, nothing to cut. Resist disturbing the spot.", "careful"];
+    case "epallida":
+      if (m===5||m===6) return ["✂️ Lightly, or just watch", "Deadhead the first flush for a rebloom attempt, or leave every head: the goldfinches will thank you by September.", "go"];
+      if (m<=2) return ["✂️ Spring cutback", "Cut last year's stalks to the ground in early spring.", "go"];
+      return ["🍃 Leave it standing", "The seed heads are winter bird food and look sculptural in frost.", "careful"];
+    case "atuberosa":
+      if (m===3||m===4) return ["🛑 It's not dead", "Butterfly weed wakes very late, often not until late May. Do not dig up the 'empty' spot.", "stop"];
+      if (m>=5&&m<=7) return ["🛑 Caterpillars first", "It's a monarch nursery. Chewed leaves are the whole point; leave it alone (a stem or two for the vase is fine).", "stop"];
+      if (m<=2) return ["✂️ Spring cutback, gently", "Cut old stalks in early spring without disturbing the taproot.", "go"];
+      return ["🍃 Leave the pods", "Let seed pods ripen and drift if you want volunteers.", "careful"];
+    case "mfistulosa":
+      if (m>=6&&m<=8) return ["✂️ Deadhead away", "Snip spent heads back to a side bud for a second act. Give it airflow and water the base, never the leaves: mildew is its one vice.", "go"];
+      if (m<=2) return ["✂️ Spring cutback", "Cut to the ground in early spring; divide every 3 to 4 years if the patch crowds.", "go"];
+      return ["🍃 Off duty", "", "careful"];
+    case "vhastata":
+      if (m>=6&&m<=8) return ["✂️ Optional tidy", "Deadhead for maximum rebloom, or let the candelabras go to seed: self-sown babies are how this short-lived perennial stays in the garden.", "go"];
+      return ["🍃 Leave it standing", "Winter seed for the sparrows and finches; cut old stems in early spring.", "careful"];
   }
   return ["🍃 Leave it be", "", "careful"];
 }
@@ -941,7 +1040,7 @@ window.addEventListener("hashchange", () => { const id = location.hash.slice(1);
 function renderNow() {
   $("#nowTitle").textContent = "Right now: " + MONTHS[M];
   $("#nowLede").textContent = YEARDATA[M].story;
-  const blooming = PLANTS.filter(p => p.bloom.includes(M));
+  const blooming = PLANTS.filter(p => p.origin!=="list" && p.bloom.includes(M));
   $("#nowBlooming").innerHTML = blooming.length
     ? blooming.map(p => `<span class="chip bloom link" onclick="goPlant('${p.id}')">${p.emoji} ${p.name}</span>`).join("")
     : `<span class="chip">A quiet month for flowers: structure and birds take the stage.</span>`;
@@ -993,10 +1092,10 @@ function renderPlants() {
   const blessed = store.get("blessed", {});
   $("#plantgrid").innerHTML = PLANTS.map(p => `
     <div class="card pcard" id="pc_${p.id}">
-      <div class="ph" style="background-image:url(${PHOTOS[p.photo]});background-position:${p.pos}"></div>
+      ${p.photo ? `<div class="ph" style="background-image:url(${PHOTOS[p.photo]});background-position:${p.pos}"></div>` : `<div class="ph" style="display:flex;align-items:center;justify-content:center;font-size:3.4em;background:linear-gradient(135deg,var(--pye-soft),var(--gold-soft))">${p.emoji}</div>`}
       <div class="body">
         <div>
-          <span class="badge ${p.conf}">${p.conf==="sure"?"I'm sure":p.conf==="guess"?"best guess":"mystery: help!"}</span>
+          <span class="badge ${p.origin==="list"?"list":p.conf}">${p.origin==="list"?"Julia's starter list":p.conf==="sure"?"I'm sure":p.conf==="guess"?"best guess":"mystery: help!"}</span>
           <h4>${p.emoji} ${p.name}</h4>
           <div class="latin">${p.latin} · ${p.type}</div>
         </div>
@@ -1012,7 +1111,7 @@ function renderPlants() {
           ${p.ask?`<p style="background:var(--pye-soft);border-radius:6px;padding:6px 9px;font-size:.8rem">❓ <em>${p.ask}</em></p>`:""}
         </div>
         <div class="julia-line">Julia's note: <span style="opacity:.6">waiting for her voice right here.</span></div>
-        <div style="font-size:.74rem;color:var(--ink-soft)">Lives in: ${p.beds.map(b=>BEDS[b].name.split("·")[1].trim()).join(" · ")}</div>
+        <div style="font-size:.74rem;color:var(--ink-soft)">${p.beds.length ? "Lives in: "+p.beds.map(b=>BEDS[b].name.split("·")[1].trim()).join(" · ") : "Destination bed: Julia's call (not planted yet)"}</div>
         <label class="confirmrow noprint"><input type="checkbox" data-bless="${p.id}" ${blessed[p.id]?"checked":""}> Julia has blessed this ID &amp; card</label>
       </div>
     </div>`).join("");
@@ -1043,9 +1142,16 @@ function renderYearMonth(i) {
   $("#ymTasks").innerHTML = YEARDATA[i].tasks.map(t => `<li><input type="checkbox"> <span>${t.t}</span><span class="mins">${t.mins>=240?"half-day":t.mins+" min"}</span></li>`).join("");
 }
 function renderBloomChart() {
-  const counts = MONTHS.map((_,i) => PLANTS.filter(p=>p.bloom.includes(i)).length);
-  const max = Math.max(...counts);
-  $("#bloomchart").innerHTML = counts.map((c,i) => `<div class="bar ${c<=1?"gap":""}" style="height:${Math.max(4,(c/max)*100)}%" title="${MONTHS[i]}: ${c} in bloom"></div>`).join("");
+  const yard = MONTHS.map((_,i) => PLANTS.filter(p=>p.origin!=="list" && p.bloom.includes(i)).length);
+  const list = MONTHS.map((_,i) => PLANTS.filter(p=>p.origin==="list" && p.bloom.includes(i)).length);
+  const max = Math.max(...yard.map((y,i)=>y+list[i]));
+  $("#bloomchart").innerHTML = yard.map((y,i) => {
+    const total = y + list[i];
+    if (!total) return `<div class="bar gap" style="height:6%" title="${MONTHS[i]}: quiet"></div>`;
+    const h = Math.max(6,(total/max)*100);
+    const listPct = Math.round(list[i]/total*100);
+    return `<div class="bar" style="height:${h}%" title="${MONTHS[i]}: ${y} in the ground now + ${list[i]} from the starter list">${list[i]?`<div class="seg-list" style="height:${listPct}%"></div>`:""}</div>`;
+  }).join("");
   $("#bloomlabels").innerHTML = MONTHS.map((m,i)=>`<div style="${i===M?"font-weight:700;color:var(--leaf)":""}">${m.slice(0,3)}</div>`).join("");
 }
 
